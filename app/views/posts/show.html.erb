@@ -1,0 +1,20 @@
+<% title "Post" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @post.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%=h @post.description %>
+</p>
+<p>
+  <strong>Code:</strong>
+  <%=h @post.code %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_post_path(@post) %> |
+  <%= link_to "Destroy", @post, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", posts_path %>
+</p>
