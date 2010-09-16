@@ -10,11 +10,11 @@ class PostsController < ApplicationController
   end
   
   def new
-    @post = Post.new
+    @post = current_user.posts.new
   end
   
   def create
-    @post = Post.new(params[:post])
+    @post = current_user.posts.new(params[:post])
     if @post.save
       flash[:notice] = "Successfully created post."
       redirect_to @post
@@ -24,11 +24,11 @@ class PostsController < ApplicationController
   end
   
   def edit
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
   end
   
   def update
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
     if @post.update_attributes(params[:post])
       flash[:notice] = "Successfully updated post."
       redirect_to @post
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
   end
   
   def destroy
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
     @post.destroy
     flash[:notice] = "Successfully destroyed post."
     redirect_to posts_url

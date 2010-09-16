@@ -12,8 +12,10 @@
       <td><%=h post.description %></td>
       <td><%=h post.code %></td>
       <td><%= link_to "Show", post %></td>
-      <td><%= link_to "Edit", edit_post_path(post) %></td>
-      <td><%= link_to "Destroy", post, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% if current_user == post.user %>
+        <td><%= link_to "Edit", edit_post_path(post) %></td>
+        <td><%= link_to "Delete", post, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>
