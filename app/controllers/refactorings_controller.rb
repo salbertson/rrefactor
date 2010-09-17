@@ -1,6 +1,11 @@
 class RefactoringsController < ApplicationController
   def index
-    @refactorings = Refactoring.all
+    if params[:post_id]
+      @post = Post.find(params[:post_id])
+      @refactorings = @post.refactorings
+    else
+      @refactorings = Refactoring.all
+    end
   end
   
   def show
@@ -8,11 +13,16 @@ class RefactoringsController < ApplicationController
   end
   
   def new
-    @refactoring = Refactoring.new
+    @post = Post.find(params[:post_id])
+    @refactoring = @post.refactorings.build
+    @refactoring.user = current_user
   end
   
   def create
-    @refactoring = Refactoring.new(params[:refactoring])
+    @post = Post.find(params[:post_id])
+    @refactoring = @post.refactorings.build(params[:refactoring])
+    @refactoring.user = current_user
+
     if @refactoring.save
       flash[:notice] = "Successfully created refactoring."
       redirect_to @refactoring

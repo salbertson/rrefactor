@@ -1,5 +1,6 @@
 <% form_for @refactoring do |f| %>
   <%= f.error_messages %>
+  <%= hidden_field_tag :post_id, params[:post_id] %>
   <p>
     <%= f.label :description %><br />
     <%= f.text_area :description %>
@@ -7,14 +8,6 @@
   <p>
     <%= f.label :code %><br />
     <%= f.text_area :code %>
-  </p>
-  <p>
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </p>
-  <p>
-    <%= f.label :post_id %><br />
-    <%= f.text_field :post_id %>
   </p>
   <p><%= f.submit %></p>
 <% end %>

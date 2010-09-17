@@ -18,7 +18,9 @@
 </p>
 
 <p>
-  <%= link_to "Edit", edit_refactoring_path(@refactoring) %> |
-  <%= link_to "Destroy", @refactoring, :confirm => 'Are you sure?', :method => :delete %> |
+  <% if current_user == @refactoring.user %>
+    <%= link_to "Edit", edit_refactoring_path(@refactoring) %> |
+    <%= link_to "Destroy", @refactoring, :confirm => 'Are you sure?', :method => :delete %> |
+  <% end %>
   <%= link_to "View All", refactorings_path %>
 </p>

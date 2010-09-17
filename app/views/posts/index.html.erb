@@ -15,7 +15,10 @@
       <% if current_user == post.user %>
         <td><%= link_to "Edit", edit_post_path(post) %></td>
         <td><%= link_to "Delete", post, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% else %>
+        <td><%= link_to "Refactor", new_refactoring_path(:post_id => post) %></td>
       <% end %>
+      <td><%= link_to "Refactorings", refactorings_path(:post_id => post) %></td>
     </tr>
   <% end %>
 </table>

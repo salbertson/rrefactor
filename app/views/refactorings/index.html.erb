@@ -14,8 +14,10 @@
       <td><%=h refactoring.user_id %></td>
       <td><%=h refactoring.post_id %></td>
       <td><%= link_to "Show", refactoring %></td>
-      <td><%= link_to "Edit", edit_refactoring_path(refactoring) %></td>
-      <td><%= link_to "Destroy", refactoring, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% if current_user == refactoring.user %>
+        <td><%= link_to "Edit", edit_refactoring_path(refactoring) %></td>
+        <td><%= link_to "Delete", refactoring, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>
