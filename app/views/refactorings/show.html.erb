@@ -1,0 +1,24 @@
+<% title "Refactoring" %>
+
+<p>
+  <strong>Description:</strong>
+  <%=h @refactoring.description %>
+</p>
+<p>
+  <strong>Code:</strong>
+  <%=h @refactoring.code %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%=h @refactoring.user_id %>
+</p>
+<p>
+  <strong>Post:</strong>
+  <%=h @refactoring.post_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_refactoring_path(@refactoring) %> |
+  <%= link_to "Destroy", @refactoring, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", refactorings_path %>
+</p>

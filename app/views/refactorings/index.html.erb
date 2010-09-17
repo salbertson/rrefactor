@@ -1,0 +1,23 @@
+<% title "Refactorings" %>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Code</th>
+    <th>User</th>
+    <th>Post</th>
+  </tr>
+  <% for refactoring in @refactorings %>
+    <tr>
+      <td><%=h refactoring.description %></td>
+      <td><%=h refactoring.code %></td>
+      <td><%=h refactoring.user_id %></td>
+      <td><%=h refactoring.post_id %></td>
+      <td><%= link_to "Show", refactoring %></td>
+      <td><%= link_to "Edit", edit_refactoring_path(refactoring) %></td>
+      <td><%= link_to "Destroy", refactoring, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Refactoring", new_refactoring_path %></p>
