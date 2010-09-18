@@ -10,7 +10,7 @@
   <% for refactoring in @refactorings %>
     <tr>
       <td><%=h refactoring.description %></td>
-      <td><%=h refactoring.code %></td>
+      <td><%= simple_format(refactoring.code) %></td>
       <td><%=h refactoring.user_id %></td>
       <td><%=h refactoring.post_id %></td>
       <td><%= link_to "Show", refactoring %></td>

@@ -10,7 +10,7 @@
     <tr>
       <td><%=h post.name %></td>
       <td><%=h post.description %></td>
-      <td><%=h post.code %></td>
+      <td><%= simple_format(post.code) %></td>
       <td><%= link_to "Show", post %></td>
       <% if current_user == post.user %>
         <td><%= link_to "Edit", edit_post_path(post) %></td>
