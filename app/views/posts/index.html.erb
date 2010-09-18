@@ -1,5 +1,11 @@
 <% title "Posts" %>
 
+<% if current_user %>
+  <p><%= link_to "Post code", new_post_path %></p>
+<% else %>
+  <p><%= link_to "Login to post code", login_path %></p>
+<% end %>
+
 <table>
   <tr>
     <th>Name</th>
@@ -16,11 +22,12 @@
         <td><%= link_to "Edit", edit_post_path(post) %></td>
         <td><%= link_to "Delete", post, :confirm => 'Are you sure?', :method => :delete %></td>
       <% else %>
-        <td><%= link_to "Refactor", new_refactoring_path(:post_id => post) %></td>
+        <% if current_user %>
+          <td><%= link_to "Refactor", new_refactoring_path(:post_id => post) %></td>
+        <% else %>
+          <td><%= link_to "Login to Refactor", login_path %></td>
+        <% end %>
       <% end %>
-      <td><%= link_to "Refactorings", refactorings_path(:post_id => post) %></td>
     </tr>
   <% end %>
 </table>
-
-<p><%= link_to "New Post", new_post_path %></p>

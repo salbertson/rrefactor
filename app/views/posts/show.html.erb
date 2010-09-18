@@ -1,6 +1,15 @@
 <% title "Post" %>
 
 <p>
+  <% if current_user == @post.user %>
+    <%= link_to "Edit", edit_post_path(@post) %> |
+    <%= link_to "Delete", @post, :confirm => 'Are you sure?', :method => :delete %> |
+  <% else %>
+    <%= link_to "Refactor", new_refactoring_path(:post_id => @post) %>
+  <% end %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%=h @post.name %>
 </p>
@@ -11,15 +20,4 @@
 <p>
   <strong>Code:</strong>
   <%= simple_format(@post.code) %>
-</p>
-
-<p>
-  <% if current_user == @post.user %>
-    <%= link_to "Edit", edit_post_path(@post) %> |
-    <%= link_to "Delete", @post, :confirm => 'Are you sure?', :method => :delete %> |
-  <% else %>
-    <%= link_to "Refactor", new_refactoring_path(:post_id => @post) %>
-  <% end %>
-  <%= link_to "Refactorings", refactorings_path(:post_id => @post) %>
-  <%= link_to "View All", posts_path %>
 </p>
