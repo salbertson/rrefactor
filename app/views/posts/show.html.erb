@@ -26,7 +26,7 @@
   </div>
 </div>
 
-<h2>Refactorings</h2>
+<h2 style="border-bottom: 2px solid #e2e1d4; font-size: 18px; padding-bottom: 8px; margin-bottom: 30px;">Refactorings</h2>
 
 <% @post.refactorings.each do |refactoring| %>
   <div class="code-preview">
@@ -44,3 +44,7 @@
     </div>
   </div>
 <% end %>
+
+<div class="button">
+  <%= link_to "&larr; All posts", posts_path %>
+</div>
