@@ -22,6 +22,11 @@ h2 {
   font-family: Georgia, serif;
 }
 
+h3 {
+  font-weight: normal;
+  font-size: 20px;
+}
+
 .group:after {
   content: ".";
   display: block;
@@ -114,11 +119,10 @@ div.code {
 ------------------------------------------*/
 
 div.code-preview {
-  margin: 20px 0 30px 0;
+  margin: 20px 0 40px 0;
 }
 
 div.code-preview h3 {
-  font-size: 16px;
   font-family: Georgia, serif;
   color: #a14141;
   float: left;
@@ -126,6 +130,7 @@ div.code-preview h3 {
 
 div.code-preview span {
   float: right;
+  color: #e2e1d4;
 }
 
 div.code-preview div.code {
@@ -134,7 +139,6 @@ div.code-preview div.code {
 }
 
 div.code-preview p.author {
-  font-size: 12px;
   text-align: right;
   color: #9c836e;
 }
@@ -147,7 +151,7 @@ div.button {
 }
 
 div.button a {
-  font-size: 12px;
+  font-size: 14px;
   text-decoration: none;
   font-weight: bold;
   padding: 5px 14px;

@@ -1,23 +1,19 @@
 <% title "Refactorings" %>
 
-<table>
-  <tr>
-    <th>Description</th>
-    <th>Code</th>
-    <th>User</th>
-    <th>Post</th>
-  </tr>
-  <% for refactoring in @refactorings %>
-    <tr>
-      <td><%=h refactoring.description %></td>
-      <td><%= simple_format(refactoring.code) %></td>
-      <td><%=h refactoring.user_id %></td>
-      <td><%=h refactoring.post_id %></td>
-      <td><%= link_to "Show", refactoring %></td>
-      <% if current_user == refactoring.user %>
-        <td><%= link_to "Edit", edit_refactoring_path(refactoring) %></td>
-        <td><%= link_to "Delete", refactoring, :confirm => 'Are you sure?', :method => :delete %></td>
-      <% end %>
-    </tr>
-  <% end %>
-</table>
+<% for refactoring in @refactorings %>
+  <div class="code-preview">
+    <div class="group">
+      <span>
+        <% if current_user == refactoring.user %>
+          <%= link_to "Edit", edit_refactoring_path(refactoring) %> |
+          <%= link_to "Delete", refactoring, :confirm => 'Are you sure?', :method => :delete %> |
+        <% end %>
+        <%= link_to "View", post_path(refactoring.post) %>
+      </span>
+    </div>
+    <div class="code">
+      <%= simple_format(refactoring.code) %>
+    </div>
+    <p class="author">by <%= refactoring.user.username %></p>
+  </div>
+<% end %>
