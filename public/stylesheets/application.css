@@ -156,15 +156,17 @@ div.button a {
   text-decoration: none;
   font-weight: bold;
   padding: 5px 14px;
-  border: 5px solid #e2e1d4;
-  background-color: #fff;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
+  color: #ffffff;
+  border: 1px solid #3792b3;
+  background: #3792b3 url(/images/button.png) repeat-x 0 50%;
+  border-radius: 14px;
+  -webkit-border-radius: 14px;
+  -moz-border-radius: 14px;
 }
 
 div.button a:hover {
-  color: #a14141;
+  background-color: #a14141;
+  border-color: #a14141;
 }
 
 /* Flash messages

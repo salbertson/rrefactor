@@ -1,8 +1,9 @@
-<% title "Refactorings" %>
+<% title "Recent Refactorings" %>
 
 <% for refactoring in @refactorings %>
   <div class="code-preview">
     <div class="group">
+      <h3>by <%= refactoring.user.username %></h3>
       <span>
         <% if current_user == refactoring.user %>
           <%= link_to "Edit", edit_refactoring_path(refactoring) %> |
@@ -14,6 +15,5 @@
     <div class="code">
       <%= simple_format(refactoring.code) %>
     </div>
-    <p class="author">by <%= refactoring.user.username %></p>
   </div>
 <% end %>

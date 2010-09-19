@@ -1,10 +1,10 @@
-<% title "Post", false %>
+<% title "Posted on #{@post.created_at.strftime("%b. %d, %Y")}", false %>
 
 <div class="group">
   <h2 style="float: left"><%= @content_for_title %></h2>
   <div class="button" style="text-align: right">
     <% if current_user %>
-      <%= link_to "Refactor", new_refactoring_path(:post_id => @post) %>
+      <%= link_to "Refactor this code", new_refactoring_path(:post_id => @post) %>
     <% else %>
       <%= link_to "Log in to refactor", login_path %>
     <% end %>
@@ -13,7 +13,7 @@
 
 <div class="code-preview">
   <div class="group">
-    <h3>Posted by <b><%= @post.user.username %></b> on <%= @post.created_at.strftime("%b. %d, %Y") %></h3>
+    <h3>by <b><%= @post.user.username %></b></h3>
     <span>
       <% if current_user == @post.user %>
         <%= link_to "Edit", edit_post_path(@post) %> |
@@ -25,3 +25,22 @@
     <%= simple_format(@post.code) %>
   </div>
 </div>
+
+<h2>Refactorings</h2>
+
+<% @post.refactorings.each do |refactoring| %>
+  <div class="code-preview">
+    <div class="group">
+      <h3 style="font-size: 16px">by <b><%= refactoring.user.username %></b></h3>
+      <span>
+        <% if current_user == refactoring.user %>
+          <%= link_to "Edit", edit_refactoring_path(refactoring) %> |
+          <%= link_to "Delete", refactoring, :confirm => 'Are you sure?', :method => :delete %>
+        <% end %>
+      </span>
+    </div>
+    <div class="code">
+      <%= simple_format(refactoring.code) %>
+    </div>
+  </div>
+<% end %>
