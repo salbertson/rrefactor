@@ -1,23 +1,27 @@
-<% title "Post" %>
+<% title "Post", false %>
 
-<p>
-  <% if current_user == @post.user %>
-    <%= link_to "Edit", edit_post_path(@post) %> |
-    <%= link_to "Delete", @post, :confirm => 'Are you sure?', :method => :delete %> |
-  <% else %>
-    <%= link_to "Refactor", new_refactoring_path(:post_id => @post) %>
-  <% end %>
-</p>
+<div class="group">
+  <h2 style="float: left"><%= @content_for_title %></h2>
+  <div class="button" style="text-align: right">
+    <% if current_user %>
+      <%= link_to "Refactor", new_refactoring_path(:post_id => @post) %>
+    <% else %>
+      <%= link_to "Log in to refactor", login_path %>
+    <% end %>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%=h @post.name %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%=h @post.description %>
-</p>
-<p>
-  <strong>Code:</strong>
-  <%= simple_format(@post.code) %>
-</p>
+<div class="code-preview">
+  <div class="group">
+    <h3>Posted by <b><%= @post.user.username %></b> on <%= @post.created_at.strftime("%b. %d, %Y") %></h3>
+    <span>
+      <% if current_user == @post.user %>
+        <%= link_to "Edit", edit_post_path(@post) %> |
+        <%= link_to "Delete", @post, :confirm => 'Are you sure?', :method => :delete %>
+      <% end %>
+    </span>
+  </div>
+  <div class="code">
+    <%= simple_format(@post.code) %>
+  </div>
+</div>

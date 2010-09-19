@@ -23,6 +23,8 @@ h2 {
 }
 
 h3 {
+  font-family: Georgia, serif;
+  color: #a14141;
   font-weight: normal;
   font-size: 20px;
 }
@@ -122,9 +124,7 @@ div.code-preview {
   margin: 20px 0 40px 0;
 }
 
-div.code-preview h3 {
-  font-family: Georgia, serif;
-  color: #a14141;
+div.code-preview h3, div.code-view h3 {
   float: left;
 }
 
@@ -133,7 +133,8 @@ div.code-preview span {
   color: #e2e1d4;
 }
 
-div.code-preview div.code {
+div.code-preview div.snippet {
+  border-bottom: 10px solid #e2e1d4;
   height: 120px;
   overflow: hidden;
 }
