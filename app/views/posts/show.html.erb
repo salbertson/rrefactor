@@ -26,7 +26,11 @@
   </div>
 </div>
 
-<h2 style="border-bottom: 2px solid #e2e1d4; font-size: 18px; padding-bottom: 8px; margin-bottom: 30px;">Refactorings</h2>
+<% if @post.refactorings.empty? %>
+  <h2 style="font-size: 18px; padding-bottom: 8px; margin-bottom: 30px;">No refactorings yet</h2>
+<% else %>
+  <h2 style="border-bottom: 2px solid #e2e1d4; font-size: 18px; padding-bottom: 8px; margin-bottom: 30px;">Refactorings</h2>
+<% end %>
 
 <% @post.refactorings.each do |refactoring| %>
   <div class="code-preview">
