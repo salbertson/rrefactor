@@ -1,4 +1,5 @@
 body {
+  color: #51463d;
   width: 800px;
   margin: 0px auto;
   padding-bottom: 40px;
@@ -152,7 +153,7 @@ div.button {
   margin: 14px 0;
 }
 
-div.button a {
+div.button a, input.button {
   font-size: 14px;
   text-decoration: none;
   font-weight: bold;
@@ -165,9 +166,15 @@ div.button a {
   -moz-border-radius: 14px;
 }
 
-div.button a:hover {
+div.button a:hover, input.button:hover {
   background-color: #a14141;
   border-color: #a14141;
+}
+
+input.button {
+  cursor: pointer;
+  font-weight: normal;
+  padding: 3px 14px;
 }
 
 /* Flash messages
@@ -227,4 +234,40 @@ div.button a:hover {
 #errorExplanation ul li {
   font-size: 12px;
   list-style: disc;
+}
+
+/* Form elements
+---------------------------------------*/
+
+form {
+  margin-top: 20px;
+}
+
+form fieldset {
+  margin: 0 0 15px 0;
+}
+
+form label {
+  display: block;
+  margin: 0 0 6px 0;
+}
+
+form input, form textarea {
+  padding: 4px;
+  font-size: 14px;
+  border: none;
+  background-color: #e2e1d7;
+  border-bottom: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+
+form textarea {
+  width: 700px;
+}
+
+form input:focus {
+  background-color: #ffffff;
 }

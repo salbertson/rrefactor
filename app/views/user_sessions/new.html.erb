@@ -2,15 +2,15 @@
 
 <% form_for @user_session do |f| %>
   <%= f.error_messages %>
-  <p>
-    <%= f.label :username %><br />
+  <fieldset>
+    <%= f.label :username %>
     <%= f.text_field :username %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
+  </fieldset>
+  <fieldset>
+    <%= f.label :password %>
     <%= f.password_field :password %>
-  </p>
-  <p><%= f.submit %></p>
+  </fieldset>
+  <%= f.submit "Log in", :class => "button" %>
 <% end %>
 
 

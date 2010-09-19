@@ -1,23 +1,25 @@
 <% form_for(@user) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :username %><br />
+  <fieldset>
+    <%= f.label :username %>
     <%= f.text_field :username %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :email %>
     <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :password %>
     <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation %><br />
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %>
-  </p>
-  <p>
-    <%= f.submit "Submit" %>
-  </p>
+  </fieldset>
+
+  <%= f.submit "Submit", :class => "button" %>
 <% end %>
