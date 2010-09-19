@@ -1,0 +1,10 @@
+<div class="group">
+  <h2 style="float: left"><%= @content_for_title %></h2>
+  <div class="button" style="text-align: right">
+    <% if current_user %>
+      <%= link_to "Post your code", new_post_path %>
+    <% else %>
+      <%= link_to "Log in to post code", login_path %>
+    <% end %>
+  </div>
+</div>

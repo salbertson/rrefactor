@@ -1,4 +1,6 @@
-<% title "Recent Refactorings" %>
+<% title "Recent Refactorings", false %>
+
+<%= render :partial => "shared/title_and_button" %>
 
 <% for refactoring in @refactorings %>
   <div class="code-preview">
