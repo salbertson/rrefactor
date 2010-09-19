@@ -1,33 +1,31 @@
-<% title "Posts" %>
+<% title "Recent Posts", false %>
 
-<% if current_user %>
-  <p><%= link_to "Post code", new_post_path %></p>
-<% else %>
-  <p><%= link_to "Login to post code", login_path %></p>
-<% end %>
+<div class="group">
+  <h2 style="float: left"><%= @content_for_title %></h2>
+  <div class="button" style="text-align: right">
+    <% if current_user %>
+      <%= link_to "Post code", new_post_path %>
+    <% else %>
+      <%= link_to "Log in to post code", login_path %>
+    <% end %>
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Code</th>
-  </tr>
-  <% for post in @posts %>
-    <tr>
-      <td><%=h post.name %></td>
-      <td><%=h post.description %></td>
-      <td><%= simple_format(post.code) %></td>
-      <td><%= link_to "Show", post %></td>
-      <% if current_user == post.user %>
-        <td><%= link_to "Edit", edit_post_path(post) %></td>
-        <td><%= link_to "Delete", post, :confirm => 'Are you sure?', :method => :delete %></td>
-      <% else %>
-        <% if current_user %>
-          <td><%= link_to "Refactor", new_refactoring_path(:post_id => post) %></td>
-        <% else %>
-          <td><%= link_to "Login to Refactor", login_path %></td>
+<% for post in @posts %>
+  <div class="code-preview">
+    <div class="group">
+      <h3><%= pluralize(post.refactorings.size, "Refactoring") %></h3>
+      <span>
+        <% if current_user == post.user %>
+          <%= link_to "Edit", edit_post_path(post) %> |
+          <%= link_to "Delete", post, :confirm => 'Are you sure?', :method => :delete %> |
         <% end %>
-      <% end %>
-    </tr>
-  <% end %>
-</table>
+        <%= link_to "View", post_path(post) %>
+      </span>
+    </div>
+    <div class="code">
+      <%= simple_format(post.code) %>
+    </div>
+    <p class="author">by <%= post.user.username %></p>
+  </div>
+<% end %>
