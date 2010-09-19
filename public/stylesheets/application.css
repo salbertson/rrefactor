@@ -62,6 +62,9 @@ h3 {
   font-size: 20px;
   font-weight: normal;
   margin: 10px 36px 0 0;
+}
+
+#logo a:link, #logo a:visited {
   color: #f3f2e8;
 }
 
@@ -182,49 +185,36 @@ input.button {
 -------------------------------------------*/
 
 #flash_notice, #flash_error {
-  padding: 5px 8px;
   margin: 10px 0;
 }
 
 #flash_notice {
-  background-color: #CFC;
-  border: solid 1px #6C6;
+  color: #66cc66;
 }
 
 #flash_error {
-  background-color: #FCC;
-  border: solid 1px #C66;
+  color: #a14141;
 }
 
 /* Original
 -----------------------------------*/
 
-.fieldWithErrors {
-  display: inline;
-}
-
 #errorExplanation {
-  width: 400px;
-  border: 2px solid #CF0000;
-  padding: 0px;
-  padding-bottom: 12px;
+  width: 500px;
+  padding: 10px 10px 12px 10px;
   margin-bottom: 20px;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
 }
 
 #errorExplanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: 0;
-  background-color: #c00;
-  color: #fff;
+  display: none;
 }
 
 #errorExplanation p {
-  color: #333;
-  margin-bottom: 0;
+  color: #a14141;
   padding: 8px;
 }
 
@@ -233,8 +223,8 @@ input.button {
 }
 
 #errorExplanation ul li {
-  font-size: 12px;
   list-style: disc;
+  line-height: 120%;
 }
 
 /* Form elements
