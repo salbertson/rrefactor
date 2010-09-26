@@ -25,7 +25,7 @@ class RefactoringsController < ApplicationController
 
     if @refactoring.save
       flash[:notice] = "Successfully created refactoring."
-      redirect_to @refactoring
+      redirect_to @post
     else
       render :action => 'new'
     end
@@ -39,7 +39,7 @@ class RefactoringsController < ApplicationController
     @refactoring = Refactoring.find(params[:id])
     if @refactoring.update_attributes(params[:refactoring])
       flash[:notice] = "Successfully updated refactoring."
-      redirect_to @refactoring
+      redirect_to @refactoring.post
     else
       render :action => 'edit'
     end
