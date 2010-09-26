@@ -2,8 +2,12 @@
   <%= f.error_messages %>
   <%= hidden_field_tag :post_id, params[:post_id] %>
   <fieldset>
+    <%= f.label :description %>
+    <%= f.text_area :description, :rows => 5 %>
+  </fieldset>
+  <fieldset>
     <%= f.label :code %>
-    <%= f.text_area :code %>
+    <%= f.text_area :code, :rows => 16 %>
   </fieldset>
   <%= f.submit "Submit", :class => "button" %>
 <% end %>
