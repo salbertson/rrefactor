@@ -4,7 +4,9 @@
   <h2 style="float: left"><%= @content_for_title %></h2>
   <div class="button" style="text-align: right">
     <% if current_user %>
-      <%= link_to "Refactor this code", new_refactoring_path(:post_id => @post) %>
+      <% if current_user != @post.user %>
+        <%= link_to "Refactor this code", new_refactoring_path(:post_id => @post) %>
+      <% end %>
     <% else %>
       <%= link_to "Log in to refactor", login_path %>
     <% end %>
