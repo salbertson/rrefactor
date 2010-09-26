@@ -3,6 +3,12 @@ require 'test_helper'
 class PostTest < ActiveSupport::TestCase
   fixtures :posts
 
+  test "should have a an associated user" do
+    post = posts(:valid)
+    post.user = nil
+    assert !post.valid?
+  end
+
   test "should have a description" do
     post = posts(:valid)
     post.description = nil

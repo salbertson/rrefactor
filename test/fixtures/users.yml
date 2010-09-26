@@ -1,1 +1,6 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+valid:
+  username: salbertson
+  email: test@test.com
+  crypted_password: testing
