@@ -150,6 +150,11 @@ div.code-preview p.author {
   color: #9c836e;
 }
 
+div.code-preview div.description p {
+  padding: 5px 0;
+  line-height: 20px;
+}
+
 /* Buttons
 -----------------------------------------*/
 
