@@ -6,13 +6,7 @@
   <div class="code-preview">
     <div class="group">
       <h3><%= pluralize(post.refactorings.size, "Refactoring") %></h3>
-      <span>
-        <% if current_user == post.user %>
-          <%= link_to "Edit", edit_post_path(post) %> |
-          <%= link_to "Delete", post, :confirm => 'Are you sure?', :method => :delete %> |
-        <% end %>
-        <%= link_to "View", post_path(post) %>
-      </span>
+      <span><%= link_to "View", post_path(post) %> entire post. </span>
     </div>
     <div class="code snippet">
       <%= simple_format(post.code) %>
