@@ -6,5 +6,5 @@ class Post < ActiveRecord::Base
   validates_length_of :description, :maximum => 1000
   validates_length_of :code, :maximum => 10_000
 
-  attr_accessible :name, :description, :code
+  attr_accessible :description, :code
 end
