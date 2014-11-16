@@ -6,7 +6,7 @@
 # no regular words or you'll be exposed to dictionary attacks.
 ActionController::Base.session = {
   :key         => '_refactor_session',
-  :secret      => '9868863f8b2743ae667221a23859b5c03f0ae04cde50bd629910458b210a61cbb84beae4f1c87d8e8c1f6993e4666341b11b356bb127edbbcc8b25ca288c6a5d'
+  :secret      => ENV.fetch('SECRET_KEY_BASE')
 }
 
 # Use the database for sessions instead of the cookie-based default,
